@@ -300,23 +300,13 @@ class DoublyLinkedList {
             this.head = this.tail;
 
             let current = this.tail;
-            let prev;
-            let next;
             
             while (current.prev) {
-                prev = current.prev;
-                next = current.next;
-                current.next = prev;
-                current.prev = next;
-                
+                [current.next, current.prev] = [current.prev, current.next];
                 current = current.next;
             }
 
-            prev = current.prev;
-            next = current.next;
-            current.next = prev;
-            current.prev = next;
-            
+            [current.next, current.prev] = [current.prev, current.next];
             this.tail = current;
 
             return this;
