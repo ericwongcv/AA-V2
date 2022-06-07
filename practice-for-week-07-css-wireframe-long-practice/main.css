@@ -1,0 +1,120 @@
+#root {
+    display: static;
+}
+
+.header {
+    display: block;
+}
+
+.header > .nav__upper {
+    height: 50px;
+    width: 80%;
+    max-width: 1366px;
+    padding: 20px 0;
+    margin: auto;
+}
+
+.upper__left {
+    margin: 10px;
+    height: 30px;
+    width: auto;
+}
+
+.upper__right {
+    font-family:Arial, Helvetica, sans-serif;
+    width: auto;
+    float: right;
+    margin: 10px 0;
+}
+
+.sign-in {
+    text-decoration: none;
+    color: green;
+    margin: 5px;
+}
+
+.get-started {
+    text-decoration: none;
+    color: green;
+    border: 1px solid green;
+    border-radius: 5px;
+    padding: 5px 15px;
+    margin: 5px;
+}
+
+.nav__lower {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.nav__lower > a {
+    text-decoration: none;
+    color: grey;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 5px 80px;
+}
+
+h1, h2 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    margin: 50px 0 30px 0;
+}
+
+.content {
+    width: 600px;
+    margin: auto;
+}
+
+.content > p {
+    text-align: justify;
+}
+
+.grid {
+    width: 785px;
+    margin: 50px auto 0 auto;
+}
+
+.grid > a {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+    width: 350px;
+    margin: 20px;
+}
+
+.footer {
+    width: 80%;
+    max-width: 1366px;
+    padding: 5px 0;
+    margin: auto;
+}
+
+.footer__left {
+    margin: 5px 10px;
+    height: 30px;
+    width: auto;
+}
+
+.footer__right {
+    font-family:'Times New Roman', Times, serif;
+    width: auto;
+    float: right;
+    margin: 10px 0;
+}
+
+.footer__right > .about {
+    margin: 10px;
+    text-decoration: none;
+    color: grey;
+}
+
+.footer__right > .help {
+    margin: 10px;
+    text-decoration: none;
+    color: grey;
+}
