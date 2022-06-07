@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap');
+
+h1 {
+    font-size: 50px;
+    font-family: 'Kdam Thmor Pro', sans-serif;
+    padding: 0;
+    margin: 30px 150px;
+    font-weight: bold;
+    text-decoration: underline overline lightcoral;
+    color: darkblue;
+    background-color: skyblue;
+}
+
+h2 {
+    font-size: 30px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 0;
+    margin: 0 100px;
+    font-weight: bold;
+    color: coral;
+    background-color: lightblue;
+}
+
+p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
+    padding: 0;
+    margin: 0 100px;
+    color: darkblue;
+    background-color: none;
+}
+
+.logo {
+    background-size: cover;
+    background-image: url(https://appacademy.github.io/styleguide/assets/logo/logo-emblem-black-1000.png);
+    background-color: none;
+    height: 100px;
+    width: 100px;
+}
