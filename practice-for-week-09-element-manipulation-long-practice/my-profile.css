@@ -1,0 +1,16 @@
+.name {
+    text-align: center;
+    padding: 10px;
+    color: darkblue;
+}
+
+.my-details {
+    width: fit-content;
+    padding: 10px 30px;
+    border: 5px dotted blue;
+    border-radius: 25px;
+}
+
+.detail:hover {
+    background-color: aqua;
+}
