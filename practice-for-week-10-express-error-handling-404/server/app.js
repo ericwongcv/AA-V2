@@ -18,7 +18,7 @@ app.use((err, req, res, next) => {
     message: err.message,
     statusCode: res.statusCode
   };
-  res.send(res.body);
+  res.json(res.body);
 });
 
 const port = 5000;
