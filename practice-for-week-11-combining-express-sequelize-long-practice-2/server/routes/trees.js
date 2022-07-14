@@ -14,6 +14,7 @@ const { Tree } = require('../db/models');
  **/
 // Your code here
 const { Op } = require('sequelize');
+const tree = require('../db/models/tree');
 
 /**
  * BASIC PHASE 1, Step B - List of all trees in the database
@@ -228,6 +229,16 @@ router.put('/:id', async (req, res, next) => {
 router.get('/search/:value', async (req, res, next) => {
     let trees = [];
 
+    const query = await Tree.findAll({
+        attributes: ['heightFt', 'tree', 'id'],
+        where: {
+            tree: {
+                [Op.like]: `%${req.params.value}%`
+            }
+        }
+    })
+    
+    trees.push(query);
 
     res.json(trees);
 });

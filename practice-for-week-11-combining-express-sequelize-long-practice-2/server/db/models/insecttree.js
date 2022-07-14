@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Tree extends Model {
+  class InsectTree extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -11,30 +11,30 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Tree.belongsToMany(
-        models.Insect,
-        { through: models.InsectTree }
-      );
     }
   };
-  Tree.init({
-    tree: DataTypes.STRING,
-    location: DataTypes.STRING,
-    heightFt: {
-      type: DataTypes.FLOAT,
-      validate: {
-        min: 0,
+  InsectTree.init({
+    insectId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      onDelete: 'cascade',
+      references: {
+        model: 'Insects',
+        key: 'id'
       }
     },
-    groundCircumferenceFt: {
-      type: DataTypes.FLOAT,
-      validate: {
-        min: 0,
+    treeId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      onDelete: 'cascade',
+      references: {
+        model: 'Trees',
+        key: 'id'
       }
     }
   }, {
     sequelize,
-    modelName: 'Tree',
+    modelName: 'InsectTree',
   });
-  return Tree;
+  return InsectTree;
 };
