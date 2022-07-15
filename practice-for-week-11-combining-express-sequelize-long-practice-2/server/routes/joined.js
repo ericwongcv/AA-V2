@@ -26,7 +26,7 @@ router.get('/trees-insects', async (req, res, next) => {
         attributes: ['id', 'tree', 'location', 'heightFt'],
         order: [['id']],
         include: {
-            model: Insect, 
+            model: Insect,
             attributes: ['id', 'name'],
             order: [['name']],
             where: {
@@ -61,7 +61,7 @@ router.get('/insects-trees', async (req, res, next) => {
 
     const insects = await Insect.findAll({
         attributes: ['id', 'name', 'description'],
-        order: [ ['name'] ]
+        order: [['name']]
     });
     
     for (let i = 0; i < insects.length; i++) {
