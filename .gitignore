@@ -84,3 +84,5 @@ practice-for-week-12-csrf-exercise/malicious-app/node_modules
 practice-for-week-12-csrf-exercise/real-app/backend/node_modules
 practice-for-week-12-cors/malicious-app/node_modules
 practice-for-week-12-cors/real-app/backend/node_modules
+practice-for-week-12-xss/real-app/backend/node_modules
+practice-for-week-12-xss/malicious-app/node_modules
