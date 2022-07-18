@@ -82,3 +82,5 @@ practice-for-week-11-efficient-querying-in-sequelize-short-practice/server/node_
 practice-for-week-11-combining-express-sequelize-long-practice-3/server/node_modules
 practice-for-week-12-csrf-exercise/malicious-app/node_modules
 practice-for-week-12-csrf-exercise/real-app/backend/node_modules
+practice-for-week-12-cors/malicious-app/node_modules
+practice-for-week-12-cors/real-app/backend/node_modules
