@@ -1,11 +1,10 @@
-import { useContext } from "react";
-import CoffeeProvider from "../context/CoffeeContext";
+import { useCoffee } from "../context/CoffeeContext";
 
 const SelectedCoffeeBean = () => {
-  const { coffeeBean } = useContext(CoffeeProvider);
-  
+  const { coffeeBean } = useCoffee();
+
   return (
-    <div className='selected-coffee'>
+    <div className="selected-coffee">
       <h2>{coffeeBean.name}</h2>
     </div>
   );

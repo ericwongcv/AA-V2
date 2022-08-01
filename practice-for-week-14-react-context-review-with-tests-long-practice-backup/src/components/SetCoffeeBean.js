@@ -1,8 +1,10 @@
-import { useCoffee } from "../context/CoffeeContext";
+import coffeeBeans from '../mockData/coffeeBeans.json';
+import { useContext } from 'react';
+import {CoffeeContext} from '../context/CoffeeContext';
 
-const SetCoffeeBean = () => {
-  const { coffeeBean, coffeeBeans, setCoffeeBeanId } = useCoffee();
-  
+const SetCoffeeBean = ({coffeeBeans}) => {
+  const { coffeeBean, setCoffeeBeanId } = useContext(CoffeeContext);
+  console.log()
   return (
     <div className="set-coffee-bean">
       <h2>Select a Coffee Bean</h2>
