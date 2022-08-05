@@ -4,6 +4,8 @@ const INCREASE_COUNT = 'cart/INCREASE_COUNT';
 const DECREASE_COUNT = 'cart/DECREASE_COUNT';
 const SET_COUNT_VALUE = 'cart/SET_COUNT_VALUE';
 
+export const getAllCartItems = (state) => Object.values(state.cart);
+
 export const addToCart = (id) => {
     return {
         type: ADD_TO_CART,

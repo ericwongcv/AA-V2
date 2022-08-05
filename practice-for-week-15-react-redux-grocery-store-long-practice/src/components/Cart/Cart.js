@@ -2,10 +2,14 @@ import CartItem from './CartItem';
 import './Cart.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeFromCart } from '../../store/cart';
+import { getAllProduce } from '../../store/produce';
+import { getAllCartItems } from '../../store/cart';
 
 function Cart() {
-  const cart = useSelector(state => state.cart)
-  const produce = useSelector(state => state.produce);
+  // const cart = useSelector(state => state.cart)
+  // const produce = useSelector(state => state.produce);
+  const cart = useSelector(getAllCartItems);
+  const produce = useSelector(getAllProduce);
 
   const dispatch = useDispatch();
 
