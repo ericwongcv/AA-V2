@@ -1,5 +1,6 @@
 import { addToCart } from '../../store/cart';
 import { useDispatch } from 'react-redux';
+import { like } from '../../store/produce';
 
 function ProduceDetails({ produce }) {
   const cartItem = {};
@@ -12,6 +13,7 @@ function ProduceDetails({ produce }) {
       <span>
         <button
           className={"like-button" + (produce.liked ? " selected" : "")}
+          onClick={(e) => dispatch(like(produce.id))}
         >
           <i className={"fas fa-heart"} />
         </button>
