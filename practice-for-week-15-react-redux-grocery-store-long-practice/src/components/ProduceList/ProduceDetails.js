@@ -1,5 +1,10 @@
+import { addToCart } from '../../store/cart';
+import { useDispatch } from 'react-redux';
+
 function ProduceDetails({ produce }) {
   const cartItem = {};
+
+  const dispatch = useDispatch();
 
   return (
     <li className="produce-details">
@@ -12,11 +17,12 @@ function ProduceDetails({ produce }) {
         </button>
         <button
           className={"plus-button" + (cartItem ? " selected" : "")}
+          onClick={() => dispatch(addToCart(produce.id))}
         >
-          <i className="fas fa-plus" />
-        </button>
-      </span>
-    </li>
+        <i className="fas fa-plus" />
+      </button>
+    </span>
+    </li >
   );
 }
 
