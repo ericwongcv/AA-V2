@@ -3,8 +3,9 @@ import './SingleArticle.css';
 
 const SingleArticle = ({ articles }) => {
   const { id } = useParams();
-  const singleArticle = articles.find(article => article.id === parseInt(id)) || "";
-
+  // const singleArticle = articles.find(article => article.id === parseInt(id)) || "";
+  const singleArticle = articles[id];
+  
   return (
     <div className='singleArticle'>
       <h1>{singleArticle.title}</h1>
