@@ -12,7 +12,7 @@ body {
 .form {
     width: fit-content;
     height: fit-content;
-    padding: 30px 40px;
+    padding: 20px 40px;
     border: 2px solid black;
     border-radius: 20px;
     background-color: lightgoldenrodyellow;
@@ -23,34 +23,10 @@ input {
     border-radius: 5px;
 }
 
-.user-email {
-    padding: 5px;
-    width: fit-content;
-    margin: auto;
+.column {
+    margin: 5px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
-.password {
-    padding: 5px;
-    width: fit-content;
-    margin: auto;
-}
-
-.submit-button {
-    padding: 5px;
-    width: fit-content;
-    margin: auto;
-}
-
-button {
-    color: black;
-    font-size: medium;
-    width: 100px;
-    height: 30px;
-    border-radius: 15px;
-    background-color: lightskyblue;
-}
-
-button:hover {
-    color: white;
-    background-color: rgb(17, 143, 201);
-}
+  
