@@ -1,0 +1,54 @@
+body {
+    color: darkblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+}
+
+.form {
+    width: fit-content;
+    height: fit-content;
+    padding: 30px 40px;
+    border: 2px solid black;
+    border-radius: 20px;
+    background-color: lightgoldenrodyellow;
+}
+
+input {
+    margin-left: 5px;
+    border-radius: 5px;
+}
+
+.user-email {
+    padding: 5px;
+    width: fit-content;
+    margin: auto;
+}
+
+.password {
+    padding: 5px;
+    width: fit-content;
+    margin: auto;
+}
+
+.submit-button {
+    padding: 5px;
+    width: fit-content;
+    margin: auto;
+}
+
+button {
+    color: black;
+    font-size: medium;
+    width: 100px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: lightskyblue;
+}
+
+button:hover {
+    color: white;
+    background-color: rgb(17, 143, 201);
+}
