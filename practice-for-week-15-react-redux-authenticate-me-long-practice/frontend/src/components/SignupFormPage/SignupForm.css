@@ -1,7 +1,7 @@
 body {
     color: darkblue;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
@@ -25,8 +25,5 @@ input {
 
 .column {
     margin: 5px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
   

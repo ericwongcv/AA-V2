@@ -21,9 +21,11 @@ time, mark, audio, video {
 
 .navbar {
     margin: 10px 0;
+    width: fit-content;
 }
 
 .navbar > ul {
+    list-style: none;
     padding: 5px 15px;
     background-color: lightgoldenrodyellow;
     border: 1px solid black;

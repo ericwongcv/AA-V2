@@ -1,4 +1,4 @@
-body {
+/* body {
     color: darkblue;
     display: flex;
     align-items: center;
@@ -7,7 +7,7 @@ body {
     font-size: 18px;
     height: 100vh;
     background-image: linear-gradient(to bottom right, rgba(35, 138, 156, 0), rgb(0, 174, 255));
-}
+} */
 
 .form {
     width: fit-content;
