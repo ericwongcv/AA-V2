@@ -34,6 +34,38 @@ class Node:
             self._parent = parent_node
             self.parent.add_child(self)
 
+    def depth_search(self, value, visited = {}):
+        stack = [self]
+        visited = {self: True}
+
+        while len(stack) > 0:
+            node = stack.pop()
+            if (node._value == value): 
+                return node
+
+            for i in range(len(node.children) - 1, -1, -1):
+                child = node.children[i]
+                if child not in visited:
+                    stack.append(child)
+                    visited[child] = True
+            
+        return None
+
+    def breadth_search(self, value):
+        queue = [self]
+        visited = {self: True}
+
+        while len(queue) > 0:
+            node = queue.pop(0)
+            if (node._value == value): 
+                return node
+
+            for child in node.children:
+                if child not in visited:
+                    queue.append(child)
+                    visited[child] = True
+            
+        return None
 
 
 # child1 = Node("child1")
