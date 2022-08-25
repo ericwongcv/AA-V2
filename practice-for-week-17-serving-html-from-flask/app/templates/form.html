@@ -11,8 +11,13 @@
     <form action="" method="post" novalidate>
         {{ form.csrf_token }}
         <p>
+            {{ form.hidden_tag() }}
             {{ form.name.label }}
-            {{ form.name(size=32) }}
+            {{ form.name(size=32, placeholder='Enter Username') }}
+        </p>
+        <p>
+            {{ form.password.label }}
+            {{ form.password(size=32, placeholder='Enter Password') }}
         </p>
         <p>{{ form.submit() }}</p>
     </form>

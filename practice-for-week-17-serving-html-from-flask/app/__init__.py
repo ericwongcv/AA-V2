@@ -1,4 +1,4 @@
-from flask import (Flask, render_template)
+from flask import (Flask, render_template, redirect)
 # import config class
 from app.config import Config
 # import form class
@@ -15,9 +15,11 @@ def index():
     return '<h1>Simple App</h1><a href="/form">Form</a>'
 
 
-@app.route('/form')
+@app.route('/form', methods=['GET', 'POST'])
 def form():
     # instantiate form
     form = SampleForm()
+    if form.validate_on_submit():
+        return redirect('/')
     # send form into Jinja template (with form=form)
     return render_template('form.html', form=form)
