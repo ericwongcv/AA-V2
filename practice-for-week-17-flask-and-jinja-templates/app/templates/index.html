@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>{{ page }} - {{ sitename }}</title>
+</head>
+
+<body>
+    {% if not logged_in %}
+        <a href="/login">Log in</a>
+    {% endif %}
+
+    <h1>{{ sitename }}</h1>
+    <h2>{{ page }}</h2>
+    {% include 'nav.html' %}
+        <p>Coming soon to a browser near you...</p>
+    {% include 'copyright.html' %}
+
+    <ul>
+        {% for item in navigation %}
+          <li>
+            <a href="{{ item.href }}">{{ item.caption }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+</body>
+
+</html>
