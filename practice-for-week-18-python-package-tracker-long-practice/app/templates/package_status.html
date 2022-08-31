@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Package Status</title>
+        <style>
+            body {
+                background-image: linear-gradient(to bottom right, rgb(206, 182, 182), rgb(207, 207, 184));
+                height: 100vh;
+                font-family:Verdana, Geneva, Tahoma, sans-serif;
+            }
+
+            table, tr, td, th {
+                background-color: lightyellow;
+                border: 2px solid black;
+            }
+
+            td, th {
+                padding: 5px;
+            }
+
+            th {
+                font-size: large;
+                color: rgb(43, 96, 156);
+            }
+
+            div {
+                display: flex;
+                justify-content: center;
+            }
+
+            .button > button {
+                margin: 10px 0;
+                height: 30px;
+                width: fit-content;
+                background-color: lightblue;
+                border-radius: 5px;
+            }
+
+            .button > button:hover {
+                background-color: lightcoral;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <h1>Package Status</h1>
+        </div>  
+        <div>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Sender</th>
+                    <th>Recipient</th>
+                    <th>Origin</th>
+                    <th>Destination</th>
+                    <th>Location</th>
+                </tr>
+
+                {% for package in packages %}
+                <tr>
+                    <td>{{ package.id }}</td>
+                    <td>{{ package.sender }}</td>
+                    <td>{{ package.recipient }}</td>
+                    <td>{{ package.origin }}</td>
+                    <td>{{ package.destination }}</td>
+                    <td>{{ package.location }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <!-- <a href="new_package">Shipping Request</a> -->
+        <div class="button">
+            <button onclick="window.location.href='new_package';">
+                New Package
+            </button>
+        </div>  
+    </body>
+</html>
