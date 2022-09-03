@@ -2,7 +2,7 @@
 
 The documents in this folder contain assignments and projects from the App Academy V2 course.
 
-Included in the course curriculum are **Javascript, NodeJS, Express, Sequelize, React, Redux, HTML, CSS, Git, SQL, Python**.
+Included in the course curriculum are **Javascript, NodeJS, Express, Sequelize, React, Redux, Python, Flask, HTML, CSS, Git, SQL, **.
 
 ### Sample React Projects (Deployed with gh-pages):
 
