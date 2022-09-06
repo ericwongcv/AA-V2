@@ -9,3 +9,5 @@ Included in the course curriculum are **Javascript, NodeJS, Express, Sequelize, 
 [Art Museum](https://ericwongcv.github.io/art-museum/)
 
 [Greenhouse](https://ericwongcv.github.io/react-greenhouse/)
+
+[Grocery Store](https://ericwongcv.github.io/react-redux-grocery-store/)
