@@ -1,58 +1,33 @@
-var countChange = function(money, coins) {    
-    const stack = [];
-    const lengths = {};
+// var countChange = function (money, coins) {
 
-    coins.forEach(coin => {
-        if (money - coin > 0) {
-            stack.push([coin]);
-        } else if (money - coin === 0) {
-            lengths[1] = 1;
-        }
-    });
-    
-    while (stack.length > 0) {
-      
-      let node = stack.pop();
-      
-      const nodeSum = node.reduce((sum, next) => sum + next);
-      
-      coins.forEach(coin => {
-        let nodeClone = [...node];
-        if (money - nodeSum - coin > 0) {
-          nodeClone.push(coin);
-          stack.push(nodeClone);
-        } else if (money - nodeSum - coin === 0) {
-          nodeClone.push(coin)
-          lengths[nodeClone.length] ? lengths[nodeClone.length]++ : lengths[nodeClone.length] = 1;
-        }
-      })
-      
-    }
-    
-    return Object.keys(lengths).length;
-  }
+//   let ways = [];
 
-  class Node {
-    constructor(arr) {
-        this.arr = arr;
-        this.sum = arr.reduce((accu, next) => accu + next);
-        this.length = arr.length;
-    }
+//   for (let i = 0; i <= money; i++) {
+//     ways[i] = 0;
+//   }
+//   ways[0] = 1;
 
-    push(val) {
-        this.arr.push(val);
-        this.sum += val;
-        this.length++;
-    }
-  }
+//   coins.forEach(coin => {
+//     for (let i = 0; i <= money; i++) {
+//       if (i >= coin) {
+//         ways[i] = ways[i - coin] + ways[i];
+//       }
+//     }
+//   })
+  
+//   return ways[money] ? ways[money] : 0;
+// }
 
-  const node = new Node([1,2,3]);
-  console.log(node.length, node.arr, node.sum)
-  node.push(3)
-  console.log(node.length, node.arr, node.sum)
+var countChange = function(money, coins) {
+  if(money < 0 || coins.length === 0)
+    return 0
+  else if(money === 0)
+    return 1
+  else
+    return countChange(money - coins[0], coins) + countChange(money, coins.slice(1))
+}
 
-
-  console.log(countChange(4, [1,2]));       // 3
-  console.log(countChange(10, [5,2,3]));    // 4
-  console.log(countChange(11, [5,7]));      // 0
-//   console.log(countChange(300, [ 5, 10, 20, 50, 100, 200, 500 ])); //
+console.log(countChange(4, [1, 2]));       // 3
+console.log(countChange(10, [5, 2, 3]));    // 4
+console.log(countChange(11, [5, 7]));      // 0
+console.log(countChange(300, [5, 10, 20, 50, 100, 200, 500])); //
