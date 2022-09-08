@@ -22,38 +22,40 @@
 
 
 var coinChange = function(coins, money) {
-    if (money <= 0) return 0;
+    // if (money <= 0) return 0;
+    // coins.sort( (a, b) => b - a);
+    // console.log(coins)
+    // const change = [];
+    // index = 0;
 
-    let queue = []
-    let count = 0;
-    coins.forEach(coin => {
-        if (money > coin) queue[0] = [coin]
-    })
+    // while (money > 0) {
+    //     if (money - coins[index] > 0) {
+    //         change.push(coins[index]);
+    //         money -= coins[index];
+    //     } else if (money - coins[index] === 0) {
+    //         return change.length + 1;
+    //     } else {
+    //         index++;
+    //     }
 
-    coins = coins.sort((a, b) => b - a);
-    
-    while (queue.length > 0) {
-        let node = queue[0]
+    //     if (index >= money.length) return 0;
+    // }
 
-        const nodeSum = node.reduce( (sum, next) => sum + next);
-        queue = queue.slice(1);
+    // return 0;
 
-        for (let i = 0; i < coins.length; i++) {
-            const nodeClone = [...node];
-            
-            if (money - nodeSum - coins[i] > 0) {
-                nodeClone.push(coins[i]);
-                queue.push(nodeClone);
-            } if (money - nodeSum - coins[i] === 0) {
-                count = nodeClone.length + 1;
-                queue = [];
-                return count;
-            }
-        }
+    const dp = Array(money + 1).fill(money + 1);
+    dp[0] = 0;
+
+    for (let i = 1; i <= money; i++) {
+        coins.forEach(coin => {
+            if (i - coin >= 0) dp[i] = Math.min(dp[i], dp[i - coin] + 1);
+        })
     }
-      
-    return count;
+
+    return dp[money] === money + 1 ? -1 : dp[money];
 }
 
-console.log(coinChange([1,2], 4));
-console.log(coinChange([186,419,83,408], 6249));
+
+console.log(coinChange([1,2,5], 11));                  // 3                    
+console.log(coinChange([1,2], 4));                     // 2
+console.log(coinChange([186,419,83,408], 6249));       // 20                 
