@@ -16,33 +16,38 @@
 // Explanation: merged array = [1,2,3,4] and median is (2 + 3) / 2 = 2.5.
 
 const findMedianSortedArrays = (nums1, nums2) => {
-    const nums1LastIdx = nums1.length - 1;
-    const nums2LastIdx = nums2.length - 1;
+    let [a, b] = [nums1, nums2];
+    const total = a.length + b.length;
+    const half = Math.floor(total / 2);
 
-    const even = (nums1.length + nums2.length) % 2 === 0;
-    const midIdx = Math.floor((nums1.length + nums2.length - 1) / 2);
+    if (b.length < a.length) [a, b] = [b, a];
 
-    if (nums1[nums1LastIdx] < nums2[0]) {
-        midVal = getNumsFromIdx(midIdx, nums1, nums2);
-        midNextVal = getNumsFromIdx(midIdx + 1, nums1, nums2);
-        return even ? (midVal + midNextVal) / 2 : midVal;
-    } else if (nums2[nums2LastIdx] < nums1[0]) {
-        midVal = getNumsFromIdx(midIdx, nums2, nums1);
-        midNextVal = getNumsFromIdx(midIdx + 1, nums2, nums1);
-        return even ? (midVal + midNextVal) / 2 : midVal;
+    let [l, r] = [0, a.length - 1];
+    
+    while (true) {
+        let i = Math.floor((l + r) / 2);    // a
+        let j = half - i - 2;               // b
+
+        const aLeft = i >= 0 ? a[i] : -Infinity;
+        const aRight = i + 1 < a.length ? a[i + 1] : Infinity;
+        const bLeft = j >= 0 ? b[j] : -Infinity;
+        const bRight = j + 1 < b.length ? b[j + 1] : Infinity;
+
+        if (aLeft <= bRight && bLeft <= aRight) {
+            if (total % 2 !== 0)
+                return Math.min(aRight, bRight);
+            else
+                return (Math.max(aLeft, bLeft) + Math.min(aRight, bRight)) / 2;
+        } else if (aLeft > bRight) {
+            r = i - 1;
+        } else {
+            l = i + 1;
+        }
     }
 };
 
-const getNumsFromIdx = (idx, nums1, nums2) => {
-    if (idx > nums1.length + nums2.length) return false;
-    if (idx < nums1.length)
-        return nums1[idx];
-    else
-        return nums2[idx - nums1.length];
-}
-
-// let [nums1, nums2] = [[1,3],[2]];
-// console.log(findMedianSortedArrays(nums1, nums2));      // 2.00000
+let [nums1, nums2] = [[1,3],[2]];
+console.log(findMedianSortedArrays(nums1, nums2));      // 2.00000
 
 [nums1, nums2] = [[1,2],[3,4]];
 console.log(findMedianSortedArrays(nums1, nums2));      // 2.5
