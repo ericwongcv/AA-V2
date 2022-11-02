@@ -49,15 +49,15 @@ const encodeRailFenceCipher = (s, numRows) => {
 
 
 const decodeRailFenceCipher = (s, numRows) => {
-    // middle rows need to alternate between bottom and top spacing while top and bottom rows use top spacing
+    // middle rows need to alternate between bottom and top spacing while top and bottom rows use top or bottom spacing only
     let topSpacing = (numRows - 1) * 2;
     let bottomSpacing = 0;
     const result = Array(numRows);
     let counter = 0;
 
     for (let i = 0; i < numRows; i++) {
-        let turn = 'top';
-        let pointer = i;
+        let turn = 'top';   // reset each turn with 'top' spacing
+        let pointer = i;    // set pointer at index where next char will be placed
 
         while (pointer < s.length) {
             result[pointer] = s[counter];
@@ -67,12 +67,14 @@ const decodeRailFenceCipher = (s, numRows) => {
             } else if (i === numRows - 1) {
                 pointer += bottomSpacing;
             } else {
+                // alternate between spacing for each row
                 pointer += turn === 'top' ? topSpacing : bottomSpacing;
                 turn = turn === 'top' ? 'bottom' : 'top'
             }
-            counter++;
+            counter++;      // serves as the index tracker of input string.
         }
 
+        // initial spacing is 'topSpacing' and alternates with 'bottomSpacing' after. Only apply to rows other than first or last.
         topSpacing -= 2;
         bottomSpacing += 2;
     }
