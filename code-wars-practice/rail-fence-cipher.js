@@ -49,7 +49,39 @@ const encodeRailFenceCipher = (s, numRows) => {
 
 
 const decodeRailFenceCipher = (s, numRows) => {
+    // middle rows need to alternate between bottom and top spacing while top and bottom rows use top spacing
+    let topSpacing = (numRows - 1) * 2;
+    let bottomSpacing = 0;
+    const result = Array(numRows);
+    let counter = 0;
 
+    for (let i = 0; i < numRows; i++) {
+        let turn = 'top';
+        let pointer = i;
+
+        while (pointer < s.length) {
+            result[pointer] = s[counter];
+
+            if (i === 0) {
+                pointer += topSpacing;
+            } else if (i === numRows - 1) {
+                pointer += bottomSpacing;
+            } else {
+                pointer += turn === 'top' ? topSpacing : bottomSpacing;
+                turn = turn === 'top' ? 'bottom' : 'top'
+            }
+            counter++;
+        }
+
+        topSpacing -= 2;
+        bottomSpacing += 2;
+    }
+    
+    return result.join('');
 };
 
-console.log(encodeRailFenceCipher("WEAREDISCOVEREDFLEEATONCE", 3) , "WECRLTEERDSOEEFEAOCAIVDEN");
+console.log(encodeRailFenceCipher("Hello, World!", 3) === "Hoo!el,Wrdl l");
+console.log(decodeRailFenceCipher("Hoo!el,Wrdl l", 3) === "Hello, World!");
+console.log(encodeRailFenceCipher("WEAREDISCOVEREDFLEEATONCE", 3) === "WECRLTEERDSOEEFEAOCAIVDEN");
+console.log(decodeRailFenceCipher("WECRLTEERDSOEEFEAOCAIVDEN", 3) === "WEAREDISCOVEREDFLEEATONCE");
+console.log(decodeRailFenceCipher("WIREEEDSEEEACAECVDLTNROFO", 4) === "WEAREDISCOVEREDFLEEATONCE");
